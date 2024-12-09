@@ -79,5 +79,4 @@ for i in range(loc):
 
 print(disk2)
 
-# 6636608910639 too high
 print("PART 2", checksum)
