@@ -42,13 +42,15 @@ print("PART 1", checksum)
 
 def findmove(id, flen, pos):
     st = -1
-    for j in range(pos):
+    for j in range(pos+1):
         if disk2[j] == -1:
             if st == -1:
                 st = j
             if st != -1 and flen-1 == j-st:
+                # print("--",  disk2[st-1:j+2], disk2[pos:pos+flen+2])
                 disk2[st:j+1] = id
                 disk2[pos+1:pos+flen+1] = -1
+                # print("++", disk2[st-1:j+2], disk2[pos:pos+flen+2])
                 return
         else:
             st = -1
@@ -59,7 +61,7 @@ f = -1
 flen = 0
 print(disk2)
 for i in range(end, 0, -1):
-    if i%10000 == 0: print(i)
+    if i % 10000 == 0: print("...sector ", i)
     if disk2[i] == -1 and f == -1:
         pass
     elif f == disk2[i]:
