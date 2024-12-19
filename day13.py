@@ -50,3 +50,11 @@ for p, EC in enumerate([0, 10000000000000]):
             part += price(a, b)
 
     print(f"part {p + 1}: {int(part)}")
+
+# next year comment:
+# Button A: X+94, Y+34
+# Button B: X+22, Y+67
+# Prize: X=8400, Y=5400 -> [80,40]
+# import numpy as np
+# np.linalg.solve(np.array([[94, 22],[34, 67]]), np.array([8400,5400])) -> [80,40]
+
