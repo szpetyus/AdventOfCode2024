@@ -32,17 +32,11 @@ while len(stack)>0:
             stack.append((posx, (xdir+w) % 4))
         if rmap[posx] in '.SE':
             paths.add_edge((pos, xdir), (posx, (xdir + w) % 4), weight=prices[w])
-# print(paths)
 
 for i in range(4):
     if i != endx:
         paths.add_edge((end, endx), (end, i), weight=0)
-    # if i != 0:
-    #     paths.add_edge((start, 0), (start, i), weight=0)
 
-# print(paths)
-# 586748 too high
-# 576728 ?
 print("part1", nx.path_weight(paths, nx.dijkstra_path(paths, (start, 0), (end, 0), 'weight'), 'weight'))
 tiles = set()
 for p in nx.all_shortest_paths(paths, (start, 0), (end, 0), weight='weight', method='dijkstra'):
